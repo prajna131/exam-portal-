@@ -1,0 +1,21 @@
+[{
+  "_id": {
+    "$oid": "64dcb2768182273f40114533"
+  },
+  "StudentID": "2200030406",
+  "Password": "Veekshana@29"
+},
+{
+  "_id": {
+    "$oid": "64dcb2768182273f40114532"
+  },
+  "StudentID": "2200030852",
+  "Password": "Bhavana@25"
+},
+{
+  "_id": {
+    "$oid": "64dcb2768182273f40114531"
+  },
+  "StudentID": "2200030861",
+  "Password": "prajna"
+}]
