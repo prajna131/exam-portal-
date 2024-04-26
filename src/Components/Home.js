@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Typography, Button, TextField, Paper, Grid } from '@mui/material';
+import { Typography, Button, TextField, Paper, Grid, Link } from '@mui/material';
 import QuestionPaper from './Questionpaper';
 import Feedback from './Feedback';
 import Scheduling from './Scheduling';
@@ -7,6 +7,9 @@ import Scheduling from './Scheduling';
 function Home() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
   const [loggedIn, setLoggedIn] = useState(false);
   const [showQuestionPaper, setShowQuestionPaper] = useState(false);
   const [showFeedback, setShowFeedback] = useState(false);
@@ -19,15 +22,18 @@ function Home() {
       setErrorMessage('Please enter a username.');
       return;
     }
-
+  
     if (!password) {
       setErrorMessage('Please enter a password.');
       return;
     }
-
+  
     if (
       (username === '2200030406' || username === '2200030852' || username === '2200030861') &&
-      (password === 'Veekshana@29' || password === 'Bhavana@25' || password === 'Prajna')
+      (password === 'Veekshana@29' || password === 'Bhavana@25' || password === 'Prajna') &&
+      (firstName === 'Noti' || firstName === 'M' || firstName === 'Nanipatruni') &&
+      (lastName === 'Veekshana' || lastName === 'Prajna' || lastName === 'Bhavana') &&
+      (email === 'Veekshana@gmail.com' || email === 'Prajna@gmail.com' || email === 'Bhavana@gmail.com')
     ) {
       let message = 'Welcome, ';
       if (username === '2200030406') {
@@ -48,6 +54,9 @@ function Home() {
       }
     }
   };
+  
+
+
 
   const handleLogout = () => {
     setLoggedIn(false);
@@ -166,6 +175,24 @@ function Home() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+          <TextField
+            label="First Name"
+            variant="outlined"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+          />
+          <TextField
+            label="Last Name"
+            variant="outlined"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+          />
+          <TextField
+            label="Email"
+            variant="outlined"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
           <Button
             variant="outlined"
             color="primary"
@@ -174,6 +201,7 @@ function Home() {
           >
             Login
           </Button>
+          <Link href="#" onClick={() => console.log("Forgot password clicked")}>Forgot Password?</Link>
           {errorMessage && <Typography variant="caption" color="error">{errorMessage}</Typography>}
         </div>
       )}
